@@ -57,6 +57,10 @@ class StoryBrain {
     return _storyData[_storyNum].choice2;
   }
 
+  void restart() {
+    _storyNum = 0;
+  }
+
 //25 - Change the storyNumber property into a private property so that only
 // story_brain.dart has access to it.
 // You can do this by right clicking on the name (storyNumber) and selecting
@@ -68,15 +72,20 @@ class StoryBrain {
 //17 - nextStory(), it should not have any outputs but it should
 // have 1 input called choiceNumber which will be the choice number (int) made by the user.
   void nextStory(int choiceNum) {
-    if (choiceNum == 1) {
-      _storyNum += 2;
-    } else {
-      _storyNum += 1;
-    }
-    if (_storyNum >= 3 && _storyNum <= 5) {
-      void restart() {
-        _storyNum = 0;
-      }
+    if (choiceNum == 1 && _storyNum == 0) {
+      _storyNum = 2;
+    } else if (choiceNum == 2 && _storyNum == 0) {
+      _storyNum = 1;
+    } else if (choiceNum == 1 && _storyNum == 2) {
+      _storyNum = 5;
+    } else if (choiceNum == 2 && _storyNum == 2) {
+      _storyNum = 4;
+    } else if (choiceNum == 1 && _storyNum == 1) {
+      _storyNum = 2;
+    } else if (choiceNum == 2 && _storyNum == 1) {
+      _storyNum = 3;
+    } else if (choiceNum == 1 && _storyNum >= 3 && _storyNum <= 5) {
+      restart();
     }
   }
 

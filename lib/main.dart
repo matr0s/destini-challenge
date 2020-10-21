@@ -52,15 +52,12 @@ class _StoryPageState extends State<StoryPage> {
                 flex: 2,
                 child: FlatButton(
                   onPressed: () {
-                    //Choice 1 made by user.
-                    //18 - nextStory() method to pass the number 1 as the choice made by the user.
                     setState(() {
                       storyList.nextStory(1);
                     });
                   },
                   color: Colors.red,
                   child: Text(
-                    //13 - get the text for choice 1.
                     storyList.getChoice1(),
                     style: TextStyle(
                       fontSize: 20.0,
